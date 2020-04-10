@@ -19,10 +19,15 @@ cv_df.take(3)
 cv_df_sorted = cv_df.sort('Country/Region')
 
 # DataFrame queries
-#dfQueryResults_01 = cv_df.groupBy('Country/Region').count().first()
+#dfQueryResults_01 = cv_df.groupBy('Country/Region').count()
 
 # Group By
 dfQueryResults_01 = cv_df.groupBy('Country/Region').count()
+
+# Group By, sort by count descending
+dfQueryResults_01.sort('count').show(20)
+
+# Group By, sort by count descending, show count > 1
 
 # pretty print the table
 dfQueryResults_01.show()
@@ -31,7 +36,7 @@ dfQueryResults_01.show(200)
 # todo
 #   1. sort in descending order
 #   2. show only those where count > 1
-
+dfQueryResults_01.sort('count', ascending=False).show(20)
 
 # SQL queries
 
